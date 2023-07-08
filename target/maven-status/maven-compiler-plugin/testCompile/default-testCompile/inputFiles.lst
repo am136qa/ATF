@@ -1,0 +1,17 @@
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/steps/LoginSteps.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/steps/AddEmployeeSteps.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/utils/ConfigReader.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/steps/PageInitializer.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/runners/RegressionRunner.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/utils/Log.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/runners/RunnerClass.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/utils/ExcelReader.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/utils/CommonMethods.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/steps/EmployeeSearchSteps.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/steps/Hooks.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/pages/LoginPage.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/runners/FailedRunner.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/pages/EmployeeSearchPage.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/utils/Constants.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/pages/AddEmployeePage.java
+/Users/dianadzherikh/IdeaProjects/TestProject/HRMSB16/src/test/java/pages/DashboardPage.java
