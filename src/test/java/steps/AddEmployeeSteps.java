@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.CommonMethods;
 import utils.Constants;
+import utils.DBUtils;
 import utils.ExcelReader;
 
 import java.util.Iterator;
@@ -15,23 +16,28 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
+    String fnFirstName;
+    String fnMiddleName;
+    String fnLastName;
+    String empId;
+
     @When("user clicks on PIM option")
     public void user_clicks_on_pim_option() {
-        //WebElement pimOption = driver.findElement(By.id("menu_pim_viewPimModule"));
+        //  WebElement pimOption = driver.findElement(By.id("menu_pim_viewPimModule"));
         //   pimOption.click();
         click(dashboardPage.pimOption);
     }
 
     @When("user clicks on add employee button")
     public void user_clicks_on_add_employee_button() {
-        //WebElement addEmployeeButton = driver.findElement(By.id("menu_pim_addEmployee"));
-        // addEmployeeButton.click();
+        //   WebElement addEmployeeBUtton = driver.findElement(By.id("menu_pim_addEmployee"));
+        // addEmployeeBUtton.click();
         click(dashboardPage.addEmployeeButton);
     }
 
     @When("user enters firstname and lastname")
     public void user_enters_firstname_and_lastname() {
-        // WebElement firstNameTextField = driver.findElement(By.id("firstName"));
+        //  WebElement firstNameTextField = driver.findElement(By.id("firstName"));
         // firstNameTextField.sendKeys("aendro");
         sendText("aendro", addEmployeePage.firstNameField);
 
@@ -42,7 +48,7 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @When("user clicks on save button")
     public void user_clicks_on_save_button() {
-        // WebElement saveButton = driver.findElement(By.id("btnSave"));
+        //   WebElement saveButton = driver.findElement(By.id("btnSave"));
         // saveButton.click();
         click(addEmployeePage.saveButton);
     }
@@ -54,17 +60,22 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @When("user enters {string} and {string} and {string}")
     public void user_enters_and_and(String firstName, String middleName, String lastName) {
+        this.fnFirstName=firstName;
+        this.fnMiddleName=middleName;
+        this.fnLastName=lastName;
         sendText(firstName, addEmployeePage.firstNameField);
         sendText(middleName, addEmployeePage.middleNameField);
         sendText(lastName, addEmployeePage.lastNameField);
+        empId=addEmployeePage.employeeIdField.getAttribute("value");
+
     }
+
 
     @When("user enters {string} and {string} and {string} in data driven format")
     public void user_enters_and_and_in_data_driven_format(String firstName, String middleName, String lastName) {
         sendText(firstName, addEmployeePage.firstNameField);
         sendText(middleName, addEmployeePage.middleNameField);
         sendText(lastName, addEmployeePage.lastNameField);
-
     }
 
     @When("user enters firstname and middlename and lastname and verify employee has added")
@@ -90,11 +101,11 @@ public class AddEmployeeSteps extends CommonMethods {
             //for this, we are clicking on add employee button in the loop ittself
             click(dashboardPage.addEmployeeButton);
         }
-
     }
 
-    @When("user enters adds multiple employees using excel from {string} and verify it")
-    public void user_enters_adds_multiple_employees_using_excel_from_and_verify_it(String sheetName) throws InterruptedException {
+    @When("user adds multiple employees using excel from {string} and verify it")
+    public void user_adds_multiple_employees_using_excel_from_and_verify_it
+            (String sheetName) throws InterruptedException {
         //here we are getting the data from excel file using parameters
         List<Map<String, String>> newEmployees =
                 ExcelReader.read(sheetName, Constants.EXCEL_READER_PATH);
@@ -120,7 +131,8 @@ public class AddEmployeeSteps extends CommonMethods {
             sendText(mapNewEmp.get("username"), addEmployeePage.usernameTextFieldBox);
             sendText(mapNewEmp.get("password"), addEmployeePage.passwordTextFieldBox);
             sendText(mapNewEmp.get("confirmPassword"), addEmployeePage.confirmPasswordBox);
-//here we are fetching the employee id from the UI using get attribute method
+
+            //here we are fetching the employee id from the UI using get attribute method
             String empIdValue = addEmployeePage.employeeIdField.getAttribute("value");
             Assert.assertTrue(addEmployeePage.saveButton.isDisplayed());
             click(addEmployeePage.saveButton);
@@ -148,10 +160,29 @@ public class AddEmployeeSteps extends CommonMethods {
                 Assert.assertEquals(expectedData, rowText);
                 //you can use below code too to verify the data
                 //  Assert.assertTrue(expectedData.equals(rowText));
-
             }
             //to add more employees we need to click on add employee button
             click(dashboardPage.addEmployeeButton);
         }
+
+    }
+
+
+    @Then("verify employee is stored in database")
+    public void verifyEmployeeIsStoredInDatabase() {
+
+        String query="select emp_firstName,emp_middle_name,emp_lastname from hs_hr_employees where employee_id=" + empId + ";";
+        System.out.println(query);
+        List<Map<String,String>> mapList=DBUtils.fetch(query);
+        Map<String,String> firstRow=mapList.get(0);
+        String dbFirstName=firstRow.get("emp_firstName");
+        String dbMiddleName=firstRow.get("emp_middle_name");
+        String dbLastName=firstRow.get("emp_lastname");
+
+        Assert.assertEquals("FirstName From frontend does not match the firstname from database",fnFirstName,dbFirstName);
+        Assert.assertEquals("MiddleName From frontend does not match the Middlename from database",fnMiddleName,dbMiddleName);
+        Assert.assertEquals("LastName From frontend does not match the lasttname from database",fnLastName,dbLastName);
+
+
     }
 }

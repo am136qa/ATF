@@ -41,3 +41,10 @@ Feature: Adding employee in HRMS apllication
   @excel
   Scenario: adding multiple employees using excel file
   When user enters adds multiple employees using excel from "EmployeeDataBatch16" and verify it
+
+  @db
+  Scenario: Adding one employee from feature file
+    When user enters "Joe" and "Jr" and "Black"
+    And user clicks on save button
+    Then employee added successfully
+    Then verify employee is stored in database

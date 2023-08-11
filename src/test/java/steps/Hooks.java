@@ -19,7 +19,7 @@ public class Hooks extends CommonMethods {
            pic = takeScreenshot("failed/" + scenario.getName());
        }else {
            pic = takeScreenshot("passed/"+scenario.getName());
-       }
+        }
         //attach this screenshot in the report
         scenario.attach(pic,"image/png",scenario.getName());
 
