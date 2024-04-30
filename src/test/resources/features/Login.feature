@@ -30,9 +30,9 @@ Feature: Login related scenarios
     When user enters "<username>" and "<password>" and verifying the "<error>" for the combinations
     Examples:
       | username | password    | error                    |
-      | admin    | fkfkkkj     | Invalid credentials      |
-      | admin1   | Hum@nhrm123 | Invalid credentials      |
-      |          | Hum@nhrm123 | Username cannot be empty |
-      | admin    |             | Password cannot be empty |
+      | ------     | ------      | Invalid credentials      |
+      | ------    | ------   | Invalid credentials      |
+      |          | ------ | Username cannot be empty |
+      | ------     |             | Password cannot be empty |
 
 
