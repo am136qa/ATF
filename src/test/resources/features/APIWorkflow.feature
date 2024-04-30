@@ -19,7 +19,7 @@ Feature: Syntax API HRMS Flow
     And the employee id "employee.employee_id" must match with globaly stored employee id
     And this employee data at "employee" object matches with the dta used to create the employee
       | emp_firstname | emp_lastname | emp_middle_name | emp_gender | emp_birthday | emp_status | emp_job_title |
-      | Jonny         | Silver       | powerhead       | Male       | 1983-07-23   | Happy      | QA            |
+      | ------        | ------        | ------        | ------        | -------   | ------       | ------             |
 
   @json
   Scenario: Creating an employee using json body
@@ -31,7 +31,7 @@ Feature: Syntax API HRMS Flow
 
   @dynamic
   Scenario: Creating an employee using highly dynamic scenario
-    Given a request is prepared for creating an employee with "Jonny", "Silver", "powerhead", "M", "1983-07-23", "happy", "QA"
+    Given a request is prepared for creating an employee with "------ ", "------ ", "------ ", "-", "------ ", "------ ", "------ "
     When a POST call is made to create an employee
     Then the status code for creating an employee is 201
     And the employee created contains key "Message" and value "Employee Created"
@@ -51,7 +51,7 @@ Feature: Syntax API HRMS Flow
     Then the status code for this employee is 200
     And this employee data at "employee" object matches with the dta used to create the employee
       | emp_firstname | emp_lastname | emp_middle_name | emp_gender | emp_birthday | emp_status | emp_job_title |
-      | Jack          | Sparrow      | Pirate          | Male       | 2023-07-29   | pathetic   | uknowed       |
+      | ------           | ------       | ------           | ------        | ------    | ------    | ------        |
 
   @employeeUpdate
   Scenario: Updating the employee using JSON
@@ -62,7 +62,7 @@ Feature: Syntax API HRMS Flow
 
   @employeeUpdate
   Scenario: Updating the employee using highly dynamic scenario
-    Given a request is prepared for updating employee with data "employee_id","Jo","SL","Silver","2013-07-29","M","QA","pathetic"
+    Given a request is prepared for updating employee with data "employee_id","------ ","------ ","------ ","------ ","------ ","------ ","------ "
     When a PUT call is made to update an employee
     Then the status code for updating an employee is 200
     And emplyee updated contains key "Message" and value "Employee record Updated"
