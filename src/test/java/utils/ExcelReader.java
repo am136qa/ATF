@@ -17,14 +17,14 @@ public class ExcelReader {
         List<Map<String,String>> excelData = new ArrayList<>();
         try {
             fileInputStream = new FileInputStream(path);
-            // that special call which knows how to read the data from excel files
+          
             XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fileInputStream);
             Sheet sheet = xssfWorkbook.getSheet(sheetName);
-//this row just for keys
+
             Row headerRow = sheet.getRow(0);
-            //for row we take 1st index bcs 0 is the header
+        
             for (int rows = 1; rows < sheet.getPhysicalNumberOfRows(); rows++) {
-                //this row just for values
+             
                 Row row = sheet.getRow(rows);
                 Map<String, String> rowMap = new LinkedHashMap<>();
                 for (int col = 0; col < row.getPhysicalNumberOfCells(); col++) {
