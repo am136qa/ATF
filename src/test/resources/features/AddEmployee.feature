@@ -15,7 +15,7 @@ Feature: Adding employee in HRMS apllication
 
   @sample
   Scenario: Adding one employee from feature file
-    When user enters "adam" and "lovely" and "farwa"
+    When user enters "------ " and "------ " and "------ "
     And user clicks on save button
     Then employee added successfully
 
@@ -26,17 +26,15 @@ Feature: Adding employee in HRMS apllication
     Then employee added successfully
     Examples:
       | firstName | middleName | lastName |
-      | leny      | darzi      | fraud    |
-      | paster    | surma      | shalli   |
-      | sana      | caty       | aim      |
+      | ------       | ------       | ------     |
+    
 
   @datatable
   Scenario: adding multiple employees using data table
     When user enters firstname and middlename and lastname and verify employee has added
       | firstName | middleName | lastName |
-      | zara      | ms         | zaca     |
-      | mary      | ms         | django   |
-      | sadam     | ms         | adam     |
+      | ------       | ------          | ------      |
+    
 
   @excel
   Scenario: adding multiple employees using excel file
@@ -44,7 +42,7 @@ Feature: Adding employee in HRMS apllication
 
   @db
   Scenario: Adding one employee from feature file
-    When user enters "Joe" and "Jr" and "Black"
+    When user enters "------ " and "------ " and "------ "
     And user clicks on save button
     Then employee added successfully
     Then verify employee is stored in database
