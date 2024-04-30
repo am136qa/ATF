@@ -12,7 +12,7 @@ public class GenerateTokenStep {
     public static String token;
     @Given("a JWT is generated")
     public void a_jwt_is_generated() {
-      //here we write code to generate JWT token
+  
         RequestSpecification request = given().header("Content-Type", "application/json").
                 body("{\n" +
                         "  \"email\": \"------ \",\n" +
