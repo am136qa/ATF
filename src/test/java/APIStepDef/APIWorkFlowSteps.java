@@ -25,16 +25,7 @@ public class APIWorkFlowSteps {
 
     @Given("a request is prepared for creating an employee")
     public void a_request_is_prepared_for_creating_an_employee() {
-       /* request = given().header("Content-Type", "application/json").
-                header("Authorization", GenerateTokenStep.token).body("{\n" +
-                        "  \"emp_firstname\": \"-----\",\n" +
-                        "  \"emp_lastname\": \"-----\",\n" +
-                        "  \"emp_middle_name\": \"-----\",\n" +
-                        "  \"emp_gender\": \"M\",\n" +
-                        "  \"emp_birthday\": \"-----\",\n" +
-                        "  \"emp_status\": \"-----\",\n" +
-                        "  \"emp_job_title\": \"-----\"\n" +
-                        "}");*/
+      
         request = given().header(APIConstants.HEADER_CONTENT_TYPE_KEY, APIConstants.HEADER_CONTENT_TYPE_VALUE).
                 header(APIConstants.HEADER_AUTHORIZATION_KEY, GenerateTokenStep.token).
                 body(APIPayloadConstants.createEmployeePayload());
@@ -62,7 +53,6 @@ public class APIWorkFlowSteps {
         System.out.println(employee_id);
     }
 
-    //------------------------------------------------------------------------------------------------
     @Given("a request is prepared for retrieving an employee")
     public void a_request_is_prepared_for_retrieving_an_employee() {
         request = given().header(APIConstants.HEADER_AUTHORIZATION_KEY, GenerateTokenStep.token).
@@ -125,7 +115,7 @@ public class APIWorkFlowSteps {
                 header(APIConstants.HEADER_AUTHORIZATION_KEY, GenerateTokenStep.token).
                 body(APIPayloadConstants.createEmployeeJsonPayloadDynamic(fn,ln,mn,gender,dob,status,jobTitle));
     }
-//__________________________________
+
     @Given("a request is prepared for updating the employee")
     public void a_request_is_prepared_for_updating_the_employee() {
         request = given().header(APIConstants.HEADER_CONTENT_TYPE_KEY, APIConstants.HEADER_CONTENT_TYPE_VALUE).
