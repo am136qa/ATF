@@ -27,13 +27,13 @@ public class APIWorkFlowSteps {
     public void a_request_is_prepared_for_creating_an_employee() {
        /* request = given().header("Content-Type", "application/json").
                 header("Authorization", GenerateTokenStep.token).body("{\n" +
-                        "  \"emp_firstname\": \"Jonny\",\n" +
-                        "  \"emp_lastname\": \"Silver\",\n" +
-                        "  \"emp_middle_name\": \"powerhead\",\n" +
+                        "  \"emp_firstname\": \"-----\",\n" +
+                        "  \"emp_lastname\": \"-----\",\n" +
+                        "  \"emp_middle_name\": \"-----\",\n" +
                         "  \"emp_gender\": \"M\",\n" +
-                        "  \"emp_birthday\": \"1983-07-23\",\n" +
-                        "  \"emp_status\": \"happy\",\n" +
-                        "  \"emp_job_title\": \"QA\"\n" +
+                        "  \"emp_birthday\": \"-----\",\n" +
+                        "  \"emp_status\": \"-----\",\n" +
+                        "  \"emp_job_title\": \"-----\"\n" +
                         "}");*/
         request = given().header(APIConstants.HEADER_CONTENT_TYPE_KEY, APIConstants.HEADER_CONTENT_TYPE_VALUE).
                 header(APIConstants.HEADER_AUTHORIZATION_KEY, GenerateTokenStep.token).
