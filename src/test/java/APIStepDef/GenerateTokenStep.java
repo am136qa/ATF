@@ -8,15 +8,15 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 public class GenerateTokenStep {
-    String baseURI= RestAssured.baseURI="http://hrm.syntaxtechs.net/syntaxapi/api";
+    String baseURI= RestAssured.baseURI="http://------ ";
     public static String token;
     @Given("a JWT is generated")
     public void a_jwt_is_generated() {
       //here we write code to generate JWT token
         RequestSpecification request = given().header("Content-Type", "application/json").
                 body("{\n" +
-                        "  \"email\": \"Alex.mzrnk@gmail.com\",\n" +
-                        "  \"password\": \"Testtt.321\"\n" +
+                        "  \"email\": \"------ \",\n" +
+                        "  \"password\": \"------ \"\n" +
                         "}");
 
         Response response=request.when().post("/generateToken.php");
