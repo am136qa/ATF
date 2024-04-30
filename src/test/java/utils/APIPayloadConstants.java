@@ -6,13 +6,13 @@ public class APIPayloadConstants {
 
     public static String createEmployeePayload() {
         String createEmployeePayload = "{\n" +
-                "  \"emp_firstname\": \"Jonny\",\n" +
-                "  \"emp_lastname\": \"Silver\",\n" +
-                "  \"emp_middle_name\": \"powerhead\",\n" +
+                "  \"emp_firstname\": \"-----\",\n" +
+                "  \"emp_lastname\": \"-----\",\n" +
+                "  \"emp_middle_name\": \"-----\",\n" +
                 "  \"emp_gender\": \"M\",\n" +
-                "  \"emp_birthday\": \"1983-07-23\",\n" +
-                "  \"emp_status\": \"happy\",\n" +
-                "  \"emp_job_title\": \"QA\"\n" +
+                "  \"emp_birthday\": \"-----\",\n" +
+                "  \"emp_status\": \"-----\",\n" +
+                "  \"emp_job_title\": \"-----\"\n" +
                 "}";
         return createEmployeePayload;
     }
@@ -20,13 +20,13 @@ public class APIPayloadConstants {
     public static String createEmployeeJsonPayload() {
 
         JSONObject obj = new JSONObject();
-        obj.put("emp_firstname", "Jonny");
-        obj.put("emp_lastname", "Silver");
-        obj.put("emp_middle_name", "powerhead");
-        obj.put("emp_gender", "M");
-        obj.put("emp_birthday", "1983-07-23");
-        obj.put("emp_status", "happy");
-        obj.put("emp_job_title", "QA");
+        obj.put("emp_firstname", "-----");
+        obj.put("emp_lastname", "-----");
+        obj.put("emp_middle_name", "-----");
+        obj.put("emp_gender", "-----");
+        obj.put("emp_birthday", "-----");
+        obj.put("emp_status", "-----");
+        obj.put("emp_job_title", "-----");
         return obj.toString();
 
     }
@@ -49,13 +49,13 @@ public class APIPayloadConstants {
     public static String updatedEmployeePayload(String empID) {
         String updatedEmplPayload = "{\n" +
                 "  \"employee_id\": \""+empID+"\",\n" +
-                "  \"emp_firstname\": \"Jack\",\n" +
-                "  \"emp_lastname\": \"Sparrow\",\n" +
-                "  \"emp_middle_name\": \"Pirate\",\n" +
-                "  \"emp_gender\": \"M\",\n" +
-                "  \"emp_birthday\": \"2023-07-29\",\n" +
-                "  \"emp_status\": \"pathetic\",\n" +
-                "  \"emp_job_title\": \"uknowed\"\n" +
+                "  \"emp_firstname\": \"-----\",\n" +
+                "  \"emp_lastname\": \"-----\",\n" +
+                "  \"emp_middle_name\": \"-----\",\n" +
+                "  \"emp_gender\": \"-----\",\n" +
+                "  \"emp_birthday\": \"-----\",\n" +
+                "  \"emp_status\": \"-----\",\n" +
+                "  \"emp_job_title\": \"-----\"\n" +
                 "}";
         return updatedEmplPayload;
     }
@@ -64,12 +64,12 @@ public class APIPayloadConstants {
 
         JSONObject obj = new JSONObject();
         obj.put("employee_id", empID);
-        obj.put("emp_firstname", "Jonny");
-        obj.put("emp_lastname", "Silver");
-        obj.put("emp_middle_name", "Pirate");
-        obj.put("emp_gender", "M");
-        obj.put("emp_birthday", "2023-07-29");
-        obj.put("emp_status", "pathetic");
+        obj.put("emp_firstname", "-----");
+        obj.put("emp_lastname", "-----");
+        obj.put("emp_middle_name", "-----");
+        obj.put("emp_gender", "-----");
+        obj.put("emp_birthday", "-----");
+        obj.put("emp_status", "-----");
         obj.put("emp_job_title", "uknowed");
         return obj.toString();
 
@@ -90,7 +90,7 @@ public class APIPayloadConstants {
     public static String partialUpdateEmployee (String empID){
         String partialUpdateEmplPayload="{\n" +
                 "  \"employee_id\": \""+empID+"\",\n" +
-                "  \"emp_firstname\": \"Jack\"\n" +
+                "  \"emp_firstname\": \"-----\"\n" +
                 "}";
         return partialUpdateEmplPayload;
     }
